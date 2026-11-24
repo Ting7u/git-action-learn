@@ -1,6 +1,9 @@
 name: Hello World
 
-on: push
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   say-hello:
@@ -15,3 +18,5 @@ jobs:
           uname -a
           echo "当前时间: "
           date
+      - name: "查看触发事件"
+        run: echo "事件：${{ github.event_name }}"
